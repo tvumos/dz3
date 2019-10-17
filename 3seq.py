@@ -11,7 +11,14 @@ if current_del not in input_second:
     print("Ошибка. Не найден требуемый разделитель в списке 2. Программа завершается.")
     exit(2)
 
-set_first = set(input_first.split(current_del))
+list_first = input_first.split(current_del)
+set_first = set(list_first)
 set_second = set(input_second.split(current_del))
-print(f"Результат: {current_del.join(set_first - set_second)}")
+set_result = set_first - set_second
+list_result = []
+for x in list_first:
+    if x in set_result:
+        list_result.append(x)
+
+print(f"Результат: {current_del.join(list_result)}")
 exit(0)
